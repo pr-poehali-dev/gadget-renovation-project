@@ -2,36 +2,48 @@ import { motion } from "framer-motion"
 import { ProfileSection } from "@/components/ProfileSection"
 import { LinkCard } from "@/components/LinkCard"
 import { SocialFooter } from "@/components/SocialFooter"
-import { Globe, Youtube, Mail, ShoppingBag, FileText, MessageCircle, Send } from "lucide-react"
+import { MessageCircle, Send, MapPin, Users, FileText, Shield, ScrollText } from "lucide-react"
 
 const links = [
   {
-    title: "Мой сайт",
-    description: "Портфолио и услуги",
+    title: "Войти в приложение",
+    description: "Чаты и стены по городам",
     href: "#",
-    icon: Globe,
+    icon: Users,
   },
   {
-    title: "YouTube канал",
-    description: "Видео и туториалы",
+    title: "Чаты по городам",
+    description: "Найди рыбаков и кладоискателей рядом",
     href: "#",
-    icon: Youtube,
+    icon: MessageCircle,
   },
   {
-    title: "Магазин",
-    description: "Товары и услуги",
+    title: "Стены по городам",
+    description: "Отчёты, находки, места рыбалки",
     href: "#",
-    icon: ShoppingBag,
+    icon: MapPin,
   },
   {
-    title: "Telegram",
-    description: "Написать напрямую",
+    title: "Telegram-сообщество",
+    description: "Обсуждения и новости проекта",
     href: "#",
     icon: Send,
   },
   {
-    title: "Бесплатные материалы",
-    description: "Шаблоны и гайды",
+    title: "Пользовательское соглашение",
+    description: "Правила использования сервиса",
+    href: "#",
+    icon: ScrollText,
+  },
+  {
+    title: "Политика конфиденциальности",
+    description: "Как мы защищаем ваши данные",
+    href: "#",
+    icon: Shield,
+  },
+  {
+    title: "Правила сообщества",
+    description: "Кодекс рыбака и кладоискателя",
     href: "#",
     icon: FileText,
   },
@@ -39,8 +51,8 @@ const links = [
 
 const socials = [
   { icon: Send, href: "#", label: "Telegram" },
-  { icon: MessageCircle, href: "#", label: "WhatsApp" },
-  { icon: Mail, href: "#", label: "Email" },
+  { icon: MessageCircle, href: "#", label: "Чат" },
+  { icon: MapPin, href: "#", label: "Карта" },
 ]
 
 const containerVariants = {
@@ -73,13 +85,13 @@ const itemVariants = {
 export function LinkBioPage() {
   return (
     <main className="relative min-h-screen px-6 py-10 flex flex-col overflow-hidden">
-      <div className="fixed inset-0 z-0 bg-gradient-to-br from-slate-50 via-white to-slate-100" />
+      <div className="fixed inset-0 z-0 bg-gradient-to-br from-slate-50 via-teal-50 to-emerald-50" />
 
-      {/* Animated gradient orbs */}
+      {/* Animated gradient orbs — природа, вода, земля */}
       <motion.div
         className="fixed z-0 w-[500px] h-[500px] rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(147, 51, 234, 0.25) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(15, 118, 110, 0.22) 0%, transparent 70%)",
           filter: "blur(60px)",
           top: "-10%",
           left: "-10%",
@@ -99,7 +111,7 @@ export function LinkBioPage() {
       <motion.div
         className="fixed z-0 w-[600px] h-[600px] rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(6, 95, 70, 0.18) 0%, transparent 70%)",
           filter: "blur(80px)",
           top: "30%",
           right: "-20%",
@@ -119,7 +131,7 @@ export function LinkBioPage() {
       <motion.div
         className="fixed z-0 w-[450px] h-[450px] rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(20, 184, 166, 0.2) 0%, transparent 70%)",
           filter: "blur(70px)",
           bottom: "-5%",
           left: "20%",
@@ -139,7 +151,7 @@ export function LinkBioPage() {
       <motion.div
         className="fixed z-0 w-[350px] h-[350px] rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(161, 122, 55, 0.12) 0%, transparent 70%)",
           filter: "blur(50px)",
           top: "60%",
           left: "-5%",
@@ -194,7 +206,6 @@ export function LinkBioPage() {
         }}
       />
 
-      {/* Noise texture overlay */}
       <div
         className="pointer-events-none fixed inset-0 z-[1]"
         style={{
@@ -211,9 +222,9 @@ export function LinkBioPage() {
       >
         <motion.div variants={itemVariants} className="pt-2">
           <ProfileSection
-            name="GlassLinks"
-            bio="Креативный дизайнер и разработчик"
-            imageUrl="/images/544291433-18043960274659947-5766591717842883293-n.jpg"
+            name="КлёвоНайдём"
+            bio="Социальная сеть для рыбаков и кладоискателей 🎣 Чаты и стены по городам России"
+            imageUrl="https://cdn.poehali.dev/projects/b4be5d4c-5235-40aa-bcdd-92cc51c0ded8/files/876ee2b9-b91e-4e0b-ab2c-2802a65c8374.jpg"
           />
         </motion.div>
 
@@ -226,7 +237,7 @@ export function LinkBioPage() {
         </motion.div>
 
         <motion.div variants={itemVariants} className="pb-2">
-          <SocialFooter socials={socials} copyright="2025 GlassLinks" />
+          <SocialFooter socials={socials} copyright="2026 КлёвоНайдём — Всё для рыбаков и кладоискателей" />
         </motion.div>
       </motion.div>
     </main>
