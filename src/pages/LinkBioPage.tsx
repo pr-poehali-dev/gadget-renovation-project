@@ -4,6 +4,10 @@ import { LinkCard } from "@/components/LinkCard"
 import { SocialFooter } from "@/components/SocialFooter"
 import { MessageCircle, Send, MapPin, Users, FileText, Shield, ScrollText } from "lucide-react"
 
+interface LinkBioPageProps {
+  onLogin?: () => void
+}
+
 const links = [
   {
     title: "Войти в приложение",
@@ -82,7 +86,7 @@ const itemVariants = {
   },
 }
 
-export function LinkBioPage() {
+export function LinkBioPage({ onLogin }: LinkBioPageProps) {
   return (
     <main className="relative min-h-screen px-6 py-10 flex flex-col overflow-hidden">
       <div className="fixed inset-0 z-0 bg-gradient-to-br from-slate-50 via-teal-50 to-emerald-50" />
@@ -222,10 +226,22 @@ export function LinkBioPage() {
       >
         <motion.div variants={itemVariants} className="pt-2">
           <ProfileSection
-            name="КлёвоНайдём"
+            name="РыбаКоп"
             bio="Социальная сеть для рыбаков и кладоискателей 🎣 Чаты и стены по городам России"
             imageUrl="https://cdn.poehali.dev/projects/b4be5d4c-5235-40aa-bcdd-92cc51c0ded8/files/876ee2b9-b91e-4e0b-ab2c-2802a65c8374.jpg"
           />
+          {onLogin && (
+            <motion.div className="mt-4 flex justify-center" variants={itemVariants}>
+              <motion.button
+                whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}
+                onClick={onLogin}
+                className="flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold text-white"
+                style={{ background: "linear-gradient(135deg, #0f766e 0%, #065f46 100%)", boxShadow: "0 4px 16px rgba(15,118,110,0.35)" }}>
+                <LogIn className="w-4 h-4" strokeWidth={1.75} />
+                Войти / Регистрация
+              </motion.button>
+            </motion.div>
+          )}
         </motion.div>
 
         <motion.div className="space-y-3 py-8" variants={containerVariants}>
@@ -237,7 +253,7 @@ export function LinkBioPage() {
         </motion.div>
 
         <motion.div variants={itemVariants} className="pb-2">
-          <SocialFooter socials={socials} copyright="2026 КлёвоНайдём — Всё для рыбаков и кладоискателей" />
+          <SocialFooter socials={socials} copyright="2026 РыбаКоп — Всё для рыбаков и кладоискателей" />
         </motion.div>
       </motion.div>
     </main>
